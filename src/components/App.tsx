@@ -115,6 +115,7 @@ function TodoItem({ item, updateTodoItem }: TTodoItemProps): JSX.Element {
     >
       <input
         className="absolute left-3 top-7"
+        data-testid="single-item-toggle"
         type="checkbox"
         onChange={handleToggleCompleted}
         checked={item.completed}
@@ -135,7 +136,11 @@ function TodoItem({ item, updateTodoItem }: TTodoItemProps): JSX.Element {
         />
       </div>
 
-      <button type="button" onClick={handleDeleteItem}>
+      <button
+        data-testid="delete-button"
+        type="button"
+        onClick={handleDeleteItem}
+      >
         X
       </button>
     </TodoItemWrapper>
@@ -226,6 +231,7 @@ function App(): JSX.Element {
             {todoList.length > 0 && (
               <input
                 className="absolute left-3 top-7"
+                data-testid="toggle-all-checkbox"
                 type="checkbox"
                 onChange={handleToggleAll}
               />
